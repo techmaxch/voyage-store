@@ -1,0 +1,13 @@
+{
+  "name": "voyage-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Voyage Store: временная витрина (RU/EN, AED/USD), каталог из Google Таблицы",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
