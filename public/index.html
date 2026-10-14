@@ -86,12 +86,12 @@ img,svg{display:block;max-width:100%}
 
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
 .brands{padding:44px 0 56px}
-.brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:22px}
-.bcard{position:relative;display:flex;flex-direction:column;gap:12px;padding:16px;border:1.5px solid var(--border-strong);border-radius:var(--r-xl);text-align:left;background:transparent;transition:border-color .14s}
-.bcard:hover{border-color:var(--primary)}
-.bcard .blabel{position:absolute;top:-11px;left:14px;padding:0 6px;background:var(--bg);font-size:14px;font-weight:700}
-.bcard .ph{aspect-ratio:4/3;border-radius:var(--r-md)}
-.bcard .bcount{font-size:13px;color:var(--text-3)}
+.cat-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 20px;margin-top:22px}
+.ccard{position:relative;display:flex;flex-direction:column;gap:12px;padding:16px;border:1.5px solid var(--border-strong);border-radius:var(--r-xl);text-align:left;background:transparent;transition:border-color .14s}
+.ccard:hover{border-color:var(--primary)}
+.ccard .clabel{position:absolute;top:-11px;left:14px;padding:0 6px;background:var(--bg);font-size:14px;font-weight:700}
+.ccard .ph{aspect-ratio:4/3;border-radius:var(--r-md)}
+.ccard .ccount{font-size:13px;color:var(--text-3)}
 
 .contact{padding:0 0 64px}
 .panel{background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--r-xl);padding:28px}
@@ -111,10 +111,10 @@ img,svg{display:block;max-width:100%}
 .crumbs a:hover{color:var(--text)}
 .crumbs b{font-weight:500;color:var(--text)}
 .page-h{margin-top:14px;font-size:28px;font-weight:800;letter-spacing:-.01em}
-.cat-layout{display:grid;grid-template-columns:180px 1fr;gap:24px;margin-top:22px;align-items:start}
+.cat-layout{display:grid;grid-template-columns:180px minmax(0,1fr);gap:24px;margin-top:22px;align-items:start}
 .side{position:sticky;top:calc(var(--header-h) + 16px)}
 .side .eyebrow{display:block;padding:0 12px 8px;font-size:11px}
-.brand-list{display:flex;flex-direction:column;gap:2px}
+.cat-list{display:flex;flex-direction:column;gap:2px}
 .bl{display:block;width:100%;text-align:left;padding:10px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--text-2)}
 .bl:hover{background:var(--surface)}
 .bl[aria-pressed="true"]{background:var(--primary-soft);color:var(--primary-ink)}
@@ -132,6 +132,20 @@ img,svg{display:block;max-width:100%}
 .pstat.in_stock{color:var(--success)}
 .pstat.to_order{color:var(--warning)}
 .empty{color:var(--text-3);padding:24px 0}
+
+.cat-main{min-width:0}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:16px}
+.toolbar[hidden]{display:none}
+.toolbar .lbl{font-size:13px;font-weight:600;color:var(--text-2)}
+.simhint{font-size:12px;color:var(--text-3)}
+.simhint[hidden]{display:none}
+.pspec{font-size:13px;color:var(--text-2);line-height:1.4}
+.unavail{display:flex;align-items:center;gap:10px;margin-top:24px;padding:14px 16px;border:1px dashed var(--border-strong);border-radius:var(--r-md);color:var(--text-3);font-size:14px}
+.unavail[hidden]{display:none}
+.unavail .ic{color:var(--text-3)}
+.dsim{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+.dsim[hidden]{display:none}
+.dsim .lbl{font-size:13px;font-weight:600;color:var(--text-2)}
 
 /* ---------- подвал и нижняя панель ---------- */
 footer{border-top:1px solid var(--border);padding:22px 0;color:var(--text-3);font-size:13px}
@@ -154,7 +168,7 @@ dialog h3{font-size:18px;font-weight:800;line-height:1.3;padding-right:40px}
 
 /* ---------- мобильная версия ---------- */
 @media (max-width:860px){
-  .brand-grid{grid-template-columns:repeat(3,1fr)}
+  .cat-cards{grid-template-columns:repeat(3,1fr)}
   .info{grid-template-columns:1fr}
 }
 @media (max-width:720px){
@@ -174,16 +188,17 @@ dialog h3{font-size:18px;font-weight:800;line-height:1.3;padding-right:40px}
   .hero .cta .btn.primary{width:100%}
   .hero .cta .btn.outline{display:none}
   .brands{padding:28px 0 36px}
-  .brand-grid{grid-template-columns:repeat(2,1fr);gap:18px 14px}
-  .bcard{padding:12px;gap:8px}
+  .cat-cards{grid-template-columns:repeat(2,1fr);gap:18px 14px}
+  .ccard{padding:12px;gap:8px}
   .contact{padding-bottom:40px}
   .panel{padding:20px}
   .page-h{font-size:24px}
-  .cat-layout{grid-template-columns:1fr;gap:14px}
+  .cat-layout{grid-template-columns:minmax(0,1fr);gap:14px}
+  .side{min-width:0}
   .side{position:static}
   .side .eyebrow{display:none}
-  .brand-list{flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:4px;scrollbar-width:none}
-  .brand-list::-webkit-scrollbar{display:none}
+  .cat-list{flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:4px;scrollbar-width:none}
+  .cat-list::-webkit-scrollbar{display:none}
   .bl{width:auto;flex:none;border:1px solid var(--border);border-radius:999px;padding:8px 16px;min-height:40px}
   .cat-grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .tabs{display:grid;grid-template-columns:repeat(3,1fr);position:fixed;left:0;right:0;bottom:0;z-index:40;height:calc(var(--tabs-h) + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);background:var(--bg-elev);border-top:1px solid var(--border)}
@@ -245,7 +260,7 @@ dialog h3{font-size:18px;font-weight:800;line-height:1.3;padding-right:40px}
       <div class="wrap">
         <div>
           <h1 data-i18n="heroTitle"></h1>
-          <p class="brands-line" id="brandsLine"></p>
+          <p class="brands-line">Apple</p>
           <p class="lead" data-i18n="heroText"></p>
           <div class="cta">
             <a class="btn primary" href="#/catalog" data-i18n="heroCta"></a>
@@ -259,7 +274,11 @@ dialog h3{font-size:18px;font-weight:800;line-height:1.3;padding-right:40px}
     <section class="brands">
       <div class="wrap">
         <p class="eyebrow" data-i18n="brands"></p>
-        <div class="brand-grid" id="brandGrid"></div>
+        <div class="cat-cards" id="catCards"></div>
+        <div class="unavail" data-unavail hidden>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg>
+          <span class="u-txt"></span>
+        </div>
       </div>
     </section>
 
@@ -281,10 +300,24 @@ dialog h3{font-size:18px;font-weight:800;line-height:1.3;padding-right:40px}
       <h1 class="page-h" data-i18n="navCatalog"></h1>
       <div class="cat-layout">
         <aside class="side">
-          <span class="eyebrow" data-i18n="brandCap"></span>
-          <div class="brand-list" id="brandList" role="group"></div>
+          <span class="eyebrow" data-i18n="catCap"></span>
+          <div class="cat-list" id="catList" role="group"></div>
         </aside>
-        <div class="cat-grid" id="catGrid"></div>
+        <div class="cat-main">
+          <div class="toolbar" id="simBar" hidden>
+            <span class="lbl" data-i18n="simLabel"></span>
+            <div class="seg" role="group" aria-label="SIM">
+              <button type="button" data-sim="esim" aria-pressed="true" data-i18n="simEsim"></button>
+              <button type="button" data-sim="sim" aria-pressed="false" data-i18n="simPhys"></button>
+            </div>
+            <span class="simhint" id="simHint" data-i18n="simHint" hidden></span>
+          </div>
+          <div class="cat-grid" id="catGrid"></div>
+          <div class="unavail" data-unavail hidden>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg>
+            <span class="u-txt"></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -315,6 +348,13 @@ dialog h3{font-size:18px;font-weight:800;line-height:1.3;padding-right:40px}
   </button>
   <h3 id="dName"></h3>
   <p class="dprice" id="dPrice"></p>
+  <div class="dsim" id="dSimRow" hidden>
+    <span class="lbl" data-i18n="simLabel"></span>
+    <div class="seg" role="group" aria-label="SIM">
+      <button type="button" data-sim="esim" aria-pressed="true" data-i18n="simEsim"></button>
+      <button type="button" data-sim="sim" aria-pressed="false" data-i18n="simPhys"></button>
+    </div>
+  </div>
   <p class="hint" data-i18n="chooseChannel"></p>
   <div class="chs">
     <a class="ch" id="chWa" target="_blank" rel="noopener"></a>
@@ -327,258 +367,21 @@ dialog h3{font-size:18px;font-weight:800;line-height:1.3;padding-right:40px}
 
 <script>
 /* ============ НАСТРОЙКИ / SETTINGS ============
-   На сервере (Railway) контакты, курс и каталог приходят из /api/catalog.
+   На сервере (Railway) контакты, курс, список недоступных брендов и каталог приходят из /api/catalog.
    Значения ниже: запас для предпросмотра без сервера. */
 let CONFIG = {
   rate: 3.65,                 // 1 USD = 3.65 AED
   whatsapp: "971500000000",   // номер WhatsApp: код страны + номер, без + и пробелов
   telegram: "voyagestore",    // ник Telegram без @
-  instagram: "voyagestore"    // ник Instagram без @
+  instagram: "voyagestore",   // ник Instagram без @
+  unavailable: ["Samsung", "Dyson", "Google Pixel"]   // бренды с пометкой «временно недоступно»
 };
 
-/* Запасной каталог (копия data/products.json) */
-let PRODUCTS = [
- {
-  "id": "ip17",
-  "brand": "Apple",
-  "cat": "smartphone",
-  "aed": 3250,
-  "status": "to_order",
-  "image": "",
-  "name": {
-   "ru": "iPhone 17",
-   "en": "iPhone 17"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "pixel10",
-  "brand": "Google Pixel",
-  "cat": "smartphone",
-  "aed": null,
-  "status": "in_stock",
-  "image": "",
-  "name": {
-   "ru": "Google Pixel 10",
-   "en": "Google Pixel 10"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "s25",
-  "brand": "Samsung",
-  "cat": "smartphone",
-  "aed": null,
-  "status": "in_stock",
-  "image": "",
-  "name": {
-   "ru": "Samsung S25",
-   "en": "Samsung S25"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "ip17-air",
-  "brand": "Apple",
-  "cat": "smartphone",
-  "aed": 3800,
-  "status": "to_order",
-  "image": "",
-  "name": {
-   "ru": "iPhone 17 Air",
-   "en": "iPhone 17 Air"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "pixel7",
-  "brand": "Google Pixel",
-  "cat": "smartphone",
-  "aed": null,
-  "status": "out",
-  "image": "",
-  "name": {
-   "ru": "Google Pixel 7",
-   "en": "Google Pixel 7"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "s25-ultra",
-  "brand": "Samsung",
-  "cat": "smartphone",
-  "aed": null,
-  "status": "out",
-  "image": "",
-  "name": {
-   "ru": "Samsung S25 Ultra",
-   "en": "Samsung S25 Ultra"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "ip17-pm",
-  "brand": "Apple",
-  "cat": "smartphone",
-  "aed": null,
-  "status": "out",
-  "image": "",
-  "name": {
-   "ru": "iPhone 17 Pro Max",
-   "en": "iPhone 17 Pro Max"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "zflip7",
-  "brand": "Samsung",
-  "cat": "smartphone",
-  "aed": null,
-  "status": "in_stock",
-  "image": "",
-  "name": {
-   "ru": "Samsung Z Flip 7",
-   "en": "Samsung Z Flip 7"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "airpods-pro3",
-  "brand": "Apple",
-  "cat": "headphones",
-  "aed": 1050,
-  "status": "in_stock",
-  "image": "",
-  "name": {
-   "ru": "AirPods Pro 3",
-   "en": "AirPods Pro 3"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "airwrap",
-  "brand": "Dyson",
-  "cat": "styler",
-  "aed": 2150,
-  "status": "in_stock",
-  "image": "",
-  "name": {
-   "ru": "Dyson Airwrap",
-   "en": "Dyson Airwrap"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "supersonic",
-  "brand": "Dyson",
-  "cat": "styler",
-  "aed": null,
-  "status": "in_stock",
-  "image": "",
-  "name": {
-   "ru": "Dyson Supersonic",
-   "en": "Dyson Supersonic"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "watch11",
-  "brand": "Apple",
-  "cat": "watch",
-  "aed": null,
-  "status": "out",
-  "image": "",
-  "name": {
-   "ru": "Apple Watch 11",
-   "en": "Apple Watch 11"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "watch-se3",
-  "brand": "Apple",
-  "cat": "watch",
-  "aed": null,
-  "status": "in_stock",
-  "image": "",
-  "name": {
-   "ru": "Apple Watch SE 3",
-   "en": "Apple Watch SE 3"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "appletv-64",
-  "brand": "Apple",
-  "cat": "tv",
-  "aed": null,
-  "status": "to_order",
-  "image": "",
-  "name": {
-   "ru": "Apple TV 64GB",
-   "en": "Apple TV 64GB"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "v15",
-  "brand": "Dyson",
-  "cat": "vacuum",
-  "aed": null,
-  "status": "out",
-  "image": "",
-  "name": {
-   "ru": "Dyson V15 Absolut",
-   "en": "Dyson V15 Absolut"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- }
-];
+/* Запасной каталог. Это копия data/products.json, на сервере каталог берётся из Google Таблицы. */
+let PRODUCTS = /*FALLBACK_START*/[{"id":"ip17-256","cat":"iphone","sim":"choice","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPhone 17","en":"iPhone 17"},"spec":{"ru":"256 GB","en":"256 GB"}},{"id":"ip17-512","cat":"iphone","sim":"choice","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPhone 17","en":"iPhone 17"},"spec":{"ru":"512 GB","en":"512 GB"}},{"id":"ip17air-256","cat":"iphone","sim":"esim","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPhone 17 Air","en":"iPhone 17 Air"},"spec":{"ru":"256 GB","en":"256 GB"}},{"id":"ip17air-512","cat":"iphone","sim":"esim","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPhone 17 Air","en":"iPhone 17 Air"},"spec":{"ru":"512 GB","en":"512 GB"}},{"id":"ip17air-1tb","cat":"iphone","sim":"esim","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPhone 17 Air","en":"iPhone 17 Air"},"spec":{"ru":"1 TB","en":"1 TB"}},{"id":"ip17pro-256","cat":"iphone","sim":"choice","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPhone 17 Pro","en":"iPhone 17 Pro"},"spec":{"ru":"256 GB","en":"256 GB"}},{"id":"ip17pro-512","cat":"iphone","sim":"choice","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPhone 17 Pro","en":"iPhone 17 Pro"},"spec":{"ru":"512 GB","en":"512 GB"}},{"id":"ip17pro-1tb","cat":"iphone","sim":"choice","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPhone 17 Pro","en":"iPhone 17 Pro"},"spec":{"ru":"1 TB","en":"1 TB"}},{"id":"ip17pm-256","cat":"iphone","sim":"choice","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPhone 17 Pro Max","en":"iPhone 17 Pro Max"},"spec":{"ru":"256 GB","en":"256 GB"}},{"id":"ip17pm-512","cat":"iphone","sim":"choice","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPhone 17 Pro Max","en":"iPhone 17 Pro Max"},"spec":{"ru":"512 GB","en":"512 GB"}},{"id":"ip17pm-1tb","cat":"iphone","sim":"choice","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPhone 17 Pro Max","en":"iPhone 17 Pro Max"},"spec":{"ru":"1 TB","en":"1 TB"}},{"id":"ip17pm-2tb","cat":"iphone","sim":"choice","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPhone 17 Pro Max","en":"iPhone 17 Pro Max"},"spec":{"ru":"2 TB","en":"2 TB"}},{"id":"ipad11-128","cat":"ipad","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPad 11","en":"iPad 11"},"spec":{"ru":"128 GB","en":"128 GB"}},{"id":"ipad11-256","cat":"ipad","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPad 11","en":"iPad 11"},"spec":{"ru":"256 GB","en":"256 GB"}},{"id":"ipadair-m3-128","cat":"ipad","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPad Air M3","en":"iPad Air M3"},"spec":{"ru":"128 GB","en":"128 GB"}},{"id":"ipadair-m3-256","cat":"ipad","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPad Air M3","en":"iPad Air M3"},"spec":{"ru":"256 GB","en":"256 GB"}},{"id":"ipadpro-m4-256","cat":"ipad","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPad Pro M4","en":"iPad Pro M4"},"spec":{"ru":"256 GB","en":"256 GB"}},{"id":"ipadpro-m4-512","cat":"ipad","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iPad Pro M4","en":"iPad Pro M4"},"spec":{"ru":"512 GB","en":"512 GB"}},{"id":"imac-m3-24","cat":"mac","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iMac M3","en":"iMac M3"},"spec":{"ru":"24 inch, 16/512 GB","en":"24 inch, 16/512 GB"}},{"id":"imac-m4-24","cat":"mac","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"iMac M4","en":"iMac M4"},"spec":{"ru":"24 inch, 16/512 GB","en":"24 inch, 16/512 GB"}},{"id":"macbook-m1-13","cat":"mac","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"MacBook (M1)","en":"MacBook (M1)"},"spec":{"ru":"13 inch","en":"13 inch"}},{"id":"macbook-m4-13","cat":"mac","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"MacBook (M4)","en":"MacBook (M4)"},"spec":{"ru":"13 inch","en":"13 inch"}},{"id":"macbook-m5-14","cat":"mac","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"MacBook (M5)","en":"MacBook (M5)"},"spec":{"ru":"14 inch, 16/512 GB","en":"14 inch, 16/512 GB"}},{"id":"airpods4","cat":"airpods","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"AirPods 4","en":"AirPods 4"},"spec":{"ru":"","en":""}},{"id":"airpods4-anc","cat":"airpods","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"AirPods 4 (ANC)","en":"AirPods 4 (ANC)"},"spec":{"ru":"","en":""}},{"id":"airpods-pro2","cat":"airpods","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"AirPods Pro 2","en":"AirPods Pro 2"},"spec":{"ru":"","en":""}},{"id":"airpods-pro3","cat":"airpods","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"AirPods Pro 3","en":"AirPods Pro 3"},"spec":{"ru":"","en":""}},{"id":"airpods-max-usbc","cat":"airpods","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"AirPods Max (USB-C)","en":"AirPods Max (USB-C)"},"spec":{"ru":"","en":""}},{"id":"watch-se3-42","cat":"watch","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"Apple Watch SE 3","en":"Apple Watch SE 3"},"spec":{"ru":"42 mm","en":"42 mm"}},{"id":"watch-se3-44","cat":"watch","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"Apple Watch SE 3","en":"Apple Watch SE 3"},"spec":{"ru":"44 mm","en":"44 mm"}},{"id":"watch11-42","cat":"watch","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"Apple Watch 11","en":"Apple Watch 11"},"spec":{"ru":"42 mm","en":"42 mm"}},{"id":"watch11-46","cat":"watch","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"Apple Watch 11","en":"Apple Watch 11"},"spec":{"ru":"46 mm","en":"46 mm"}},{"id":"watch-ultra2","cat":"watch","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"Apple Watch Ultra 2","en":"Apple Watch Ultra 2"},"spec":{"ru":"","en":""}},{"id":"watch-ultra3","cat":"watch","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"Apple Watch Ultra 3","en":"Apple Watch Ultra 3"},"spec":{"ru":"","en":""}},{"id":"appletv-64","cat":"tv","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"Apple TV","en":"Apple TV"},"spec":{"ru":"64 GB","en":"64 GB"}},{"id":"appletv-128","cat":"tv","sim":"","aed":null,"aedSim":null,"status":"in_stock","image":"","name":{"ru":"Apple TV","en":"Apple TV"},"spec":{"ru":"128 GB","en":"128 GB"}}]/*FALLBACK_END*/;
+
+/* Порядок категорий на сайте. Категории, которых тут нет, ставятся в конец. */
+const CAT_ORDER = ["iphone","ipad","mac","airpods","watch","tv"];
 
 /* ============ ТЕКСТЫ / TEXTS ============
    Условия доставки, часы работы и оплату меняйте здесь (блок info). */
@@ -589,9 +392,12 @@ const T = {
     navHome:"Главная", navCatalog:"Каталог", navContacts:"Контакты",
     write:"Написать нам", lblLang:"Язык", lblCur:"Валюта",
     heroTitle:"Продажа оригинальной техники",
-    heroText:"Доставка по всем эмиратам. Остальные фирмы и модели телефонов под заказ.",
+    heroText:"Доставка по всем эмиратам. Вся техника Apple в наличии.",
     heroCta:"Смотреть каталог", heroContact:"Связаться с нами", phProduct:"Фото товара",
-    brands:"Бренды", brandCap:"Бренд", allBrands:"Все бренды", photo:"Фото",
+    brands:"Каталог Apple", catCap:"Категория", allItems:"Вся техника", photo:"Фото",
+    unavailable:list=>`${list.join(", ")}: временно недоступно`,
+    simLabel:"Тип SIM", simEsim:"eSIM", simPhys:"Физическая SIM", simOnly:"только eSIM",
+    simHint:"Модели Air: только eSIM",
     readyTitle:"Готовы оформить заказ?",
     readySub:"Свяжитесь с нами любым удобным способом, ответим быстро.",
     infoCity:"Дубай, ОАЭ",
@@ -609,7 +415,7 @@ const T = {
     copied:"Текст скопирован. Вставьте его в чат.",
     close:"Закрыть",
     models:n=>{const a=n%10,b=n%100;return n+" "+(a===1&&b!==11?"модель":(a>=2&&a<=4&&(b<10||b>=20)?"модели":"моделей"))},
-    cats:{smartphone:"Смартфон",headphones:"Наушники",styler:"Стайлер",watch:"Часы",tablet:"Планшет",tv:"Медиаплеер",vacuum:"Пылесос",speaker:"Колонка",accessory:"Аксессуар",laptop:"Ноутбук",console:"Консоль",other:"Другое"},
+    cats:{iphone:"iPhone",ipad:"iPad",mac:"iMac, MacBook",airpods:"AirPods",watch:"Apple Watch",tv:"Apple TV",other:"Другое"},
     msgGeneric:"Здравствуйте! Хочу уточнить по технике.",
     msg:(st,n,p)=> st==="out" ? `Здравствуйте! Интересует ${n}. Когда будет в наличии?`
       : st==="to_order" ? `Здравствуйте! Интересует ${n} под заказ${p?" ("+p+")":""}. Сроки и итоговая цена?`
@@ -619,9 +425,12 @@ const T = {
     navHome:"Home", navCatalog:"Catalog", navContacts:"Contacts",
     write:"Message us", lblLang:"Language", lblCur:"Currency",
     heroTitle:"Original electronics",
-    heroText:"Delivery to all emirates. Other brands and phone models are available to order.",
+    heroText:"Delivery to all emirates. All Apple products in stock.",
     heroCta:"Browse catalog", heroContact:"Contact us", phProduct:"Product photo",
-    brands:"Brands", brandCap:"Brand", allBrands:"All brands", photo:"Photo",
+    brands:"Apple catalog", catCap:"Category", allItems:"All products", photo:"Photo",
+    unavailable:list=>`${list.join(", ")}: temporarily unavailable`,
+    simLabel:"SIM type", simEsim:"eSIM", simPhys:"Physical SIM", simOnly:"eSIM only",
+    simHint:"Air models: eSIM only",
     readyTitle:"Ready to place an order?",
     readySub:"Message us any way you like, we reply fast.",
     infoCity:"Dubai, UAE",
@@ -639,7 +448,7 @@ const T = {
     copied:"Text copied. Paste it into the chat.",
     close:"Close",
     models:n=>n+(n===1?" model":" models"),
-    cats:{smartphone:"Smartphone",headphones:"Headphones",styler:"Hair styler",watch:"Watch",tablet:"Tablet",tv:"Media player",vacuum:"Vacuum",speaker:"Speaker",accessory:"Accessory",laptop:"Laptop",console:"Console",other:"Other"},
+    cats:{iphone:"iPhone",ipad:"iPad",mac:"iMac, MacBook",airpods:"AirPods",watch:"Apple Watch",tv:"Apple TV",other:"Other"},
     msgGeneric:"Hello! I'd like to ask about your products.",
     msg:(st,n,p)=> st==="out" ? `Hello! I'm interested in ${n}. When will it be back in stock?`
       : st==="to_order" ? `Hello! I'm interested in ${n} to order${p?" ("+p+")":""}. Lead time and final price?`
@@ -655,39 +464,53 @@ const ICON = {
   ig:I('<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/>','<circle cx="17.2" cy="6.8" r=".8" fill="currentColor"/>'),
   pin:I('<path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>'),
   clock:I('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
-  card:I('<rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18"/>')
+  card:I('<rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18"/>'),
+  pause:I('<circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/>')
 };
 
 /* ============ СОСТОЯНИЕ / STATE ============ */
-const state = { lang:"ru", cur:"AED", view:"home", brand:"", current:null };
+const state = { lang:"ru", cur:"AED", sim:"esim", view:"home", cat:"", current:null };
 try{
-  const l = localStorage.getItem("vs_lang"), c = localStorage.getItem("vs_cur");
+  const l = localStorage.getItem("vs_lang"), c = localStorage.getItem("vs_cur"), s = localStorage.getItem("vs_sim");
   if(l==="ru"||l==="en") state.lang = l;
   if(c==="AED"||c==="USD") state.cur = c;
+  if(s==="esim"||s==="sim") state.sim = s;
 }catch(e){}
 
 const $ = s => document.querySelector(s);
 const $$ = s => Array.from(document.querySelectorAll(s));
 const t = k => T[state.lang][k];
 const esc = v => String(v==null?"":v).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
-const slug = s => String(s).toLowerCase().trim().replace(/[^a-z0-9а-яё]+/gi,"-").replace(/^-|-$/g,"");
 
 function num(n){ return new Intl.NumberFormat(state.lang==="ru"?"ru-RU":"en-US").format(n); }
 function money(aed){
   return state.cur==="AED" ? num(aed)+" AED" : "$"+new Intl.NumberFormat("en-US").format(Math.round(aed/CONFIG.rate));
 }
+
+/* цена зависит от типа SIM только у товаров с выбором (sim = choice) */
+function unitAed(p){
+  const v = (p.sim==="choice" && state.sim==="sim") ? p.aedSim : p.aed;
+  return (v==null || !isFinite(v)) ? null : v;
+}
 function priceText(p){
-  if(p.aed==null || !isFinite(p.aed)) return null;
-  return (p.status==="to_order" ? t("from") : "")+money(p.aed);
+  const v = unitAed(p);
+  if(v==null) return null;
+  return (p.status==="to_order" ? t("from") : "")+money(v);
+}
+function simLabel(p, forOrder){
+  if(p.sim==="choice") return state.sim==="sim" ? t("simPhys") : t("simEsim");
+  if(p.sim==="esim") return forOrder ? t("simEsim") : t("simOnly");
+  return "";
 }
 function catLabel(c){
   const l = t("cats")[c];
   return l || (c ? c.charAt(0).toUpperCase()+c.slice(1) : "");
 }
-function brandsList(){
+function catsList(){
   const m = new Map();
-  PRODUCTS.forEach(p => { const b = p.brand || "Other"; m.set(b, (m.get(b)||0)+1); });
-  return Array.from(m, ([name,count]) => ({name,count}));
+  PRODUCTS.forEach(p => { const c = p.cat || "other"; m.set(c, (m.get(c)||0)+1); });
+  const rank = k => { const i = CAT_ORDER.indexOf(k); return i<0 ? 99 : i; };
+  return Array.from(m.keys()).sort((a,b) => rank(a)-rank(b)).map(k => ({key:k, count:m.get(k)}));
 }
 
 /* ============ ФОТО / PHOTOS ============ */
@@ -712,6 +535,19 @@ function hydratePhotos(root){
 }
 
 /* ============ ОТРИСОВКА / RENDER ============ */
+function renderUnavailable(){
+  const list = (CONFIG.unavailable||[]).filter(Boolean);
+  $$("[data-unavail]").forEach(el => {
+    el.hidden = !list.length;
+    const txt = el.querySelector(".u-txt");
+    if(txt) txt.textContent = list.length ? t("unavailable")(list) : "";
+  });
+}
+
+function renderSim(){
+  $$("button[data-sim]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.sim===state.sim)));
+}
+
 function renderStatic(){
   document.documentElement.lang = state.lang;
   $$("[data-i18n]").forEach(el => { const v = t(el.dataset.i18n); if(typeof v==="string") el.textContent = v; });
@@ -719,16 +555,16 @@ function renderStatic(){
   $$("[data-cur-select]").forEach(s => { s.value = state.cur; });
   $("#dClose").setAttribute("aria-label", t("close"));
   $("#footText").textContent = "© "+new Date().getFullYear()+" Voyage Store · "+t("footer");
+  renderSim();
+  renderUnavailable();
 }
 
 function renderHome(){
-  const bs = brandsList().slice().sort((a,b)=>b.count-a.count).slice(0,3).map(b=>b.name);
-  $("#brandsLine").textContent = bs.join(" · ");
-  $("#brandGrid").innerHTML = brandsList().map(b => `
-    <button type="button" class="bcard" data-brand="${esc(b.name)}">
-      <span class="blabel">${esc(b.name)}</span>
-      ${ph("images/brand-"+slug(b.name)+".jpg", t("photo"))}
-      <span class="bcount">${t("models")(b.count)}</span>
+  $("#catCards").innerHTML = catsList().map(c => `
+    <button type="button" class="ccard" data-cat="${esc(c.key)}">
+      <span class="clabel">${esc(catLabel(c.key))}</span>
+      ${ph("images/cat-"+encodeURIComponent(c.key)+".jpg", t("photo"))}
+      <span class="ccount">${t("models")(c.count)}</span>
     </button>`).join("");
 
   $("#chanLinks").innerHTML =
@@ -745,25 +581,34 @@ function renderHome(){
 }
 
 function renderCatalog(){
-  const bl = brandsList();
-  if(state.brand && !bl.some(b => b.name===state.brand)) state.brand = "";
-  $("#brandList").innerHTML =
-    `<button type="button" class="bl" data-brand="" aria-pressed="${state.brand===""}">${t("allBrands")}</button>`+
-    bl.map(b => `<button type="button" class="bl" data-brand="${esc(b.name)}" aria-pressed="${state.brand===b.name}">${esc(b.name)}</button>`).join("");
+  const cl = catsList();
+  if(state.cat && !cl.some(c => c.key===state.cat)) state.cat = "";
+  $("#catList").innerHTML =
+    `<button type="button" class="bl" data-cat="" aria-pressed="${state.cat===""}">${t("allItems")}</button>`+
+    cl.map(c => `<button type="button" class="bl" data-cat="${esc(c.key)}" aria-pressed="${state.cat===c.key}">${esc(catLabel(c.key))}</button>`).join("");
 
-  const list = PRODUCTS.filter(p => !state.brand || (p.brand||"Other")===state.brand);
+  const list = PRODUCTS.filter(p => !state.cat || (p.cat||"other")===state.cat);
+
+  /* переключатель SIM показываем, только если в списке есть iPhone с выбором SIM */
+  const hasChoice = list.some(p => p.sim==="choice");
+  $("#simBar").hidden = !hasChoice;
+  $("#simHint").hidden = !list.some(p => p.sim==="esim");
+
   $("#catGrid").innerHTML = list.length ? list.map(p => {
     const pr = priceText(p), st = p.status || "in_stock";
+    const spec = [p.spec[state.lang], simLabel(p,false)].filter(Boolean).join(" · ");
     return `<button type="button" class="pcard" data-id="${esc(p.id)}">
       ${ph(imgSrc(p), t("photo"))}
       <span class="pbody">
         <span class="pcat">${esc(catLabel(p.cat))}</span>
         <span class="pname">${esc(p.name[state.lang])}</span>
+        ${spec ? `<span class="pspec">${esc(spec)}</span>` : ""}
         <span class="pprice${pr?"":" none"}">${esc(pr || t("onRequest"))}</span>
         <span class="pstat ${esc(st)}">${esc(t("stock")[st] || "")}</span>
       </span>
     </button>`;
   }).join("") : `<p class="empty">—</p>`;
+  renderSim();
   hydratePhotos($("#viewCatalog"));
 }
 
@@ -789,14 +634,14 @@ function parseHash(){
   const h = location.hash.replace(/^#\/?/,"");
   const [path, qs] = h.split("?");
   const q = new URLSearchParams(qs||"");
-  return { path: path||"", brand: q.get("brand")||"" };
+  return { path: path||"", cat: q.get("cat")||"" };
 }
-function setView(path, brand){
+function setView(path, cat){
   state.view = path==="catalog" ? "catalog" : (path==="contacts" ? "contacts" : "home");
-  state.brand = state.view==="catalog" ? (brand||"") : "";
+  state.cat = state.view==="catalog" ? (cat||"") : "";
 }
 function hashFor(){
-  if(state.view==="catalog") return "#/catalog"+(state.brand ? "?brand="+encodeURIComponent(state.brand) : "");
+  if(state.view==="catalog") return "#/catalog"+(state.cat ? "?cat="+encodeURIComponent(state.cat) : "");
   return state.view==="contacts" ? "#/contacts" : "#/";
 }
 function showView(scroll){
@@ -812,8 +657,8 @@ function showView(scroll){
     try{ window.scrollTo(0,0); }catch(e){}
   }
 }
-function go(path, brand){
-  setView(path, brand);
+function go(path, cat){
+  setView(path, cat);
   showView(true);
   const h = hashFor();
   try{
@@ -827,7 +672,7 @@ function go(path, brand){
 window.addEventListener("hashchange", () => {
   if(skipHash === location.hash){ skipHash = null; return; }
   const r = parseHash();
-  setView(r.path, r.brand);
+  setView(r.path, r.cat);
   showView(true);
 });
 
@@ -846,13 +691,16 @@ document.addEventListener("keydown", e => { if(e.key==="Escape") closeMenu(); })
 /* ============ ЗАКАЗ / ORDER ============ */
 function orderText(p){
   if(!p) return t("msgGeneric");
-  const name = p.name[state.lang] + (p.spec[state.lang] ? " ("+p.spec[state.lang]+")" : "");
+  const spec = [p.spec[state.lang], simLabel(p,true)].filter(Boolean).join(", ");
+  const name = p.name[state.lang] + (spec ? " ("+spec+")" : "");
   return T[state.lang].msg(p.status||"in_stock", name, priceText(p));
 }
 function fillDialog(){
   const p = state.current, msg = orderText(p);
-  $("#dName").textContent = p ? p.name[state.lang]+(p.spec[state.lang] ? " · "+p.spec[state.lang] : "") : t("write");
+  const title = p ? [p.name[state.lang], p.spec[state.lang], simLabel(p,true)].filter(Boolean).join(" · ") : t("write");
+  $("#dName").textContent = title;
   $("#dPrice").textContent = (p && priceText(p)) || "";
+  $("#dSimRow").hidden = !(p && p.sim==="choice");
   $("#chWa").href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
   $("#chWa").innerHTML = ICON.wa+`<span>${t("whatsapp")}</span>`;
   $("#chTg").href = `https://t.me/${CONFIG.telegram}`;
@@ -894,7 +742,7 @@ document.addEventListener("click", e => {
   if(link){
     e.preventDefault();
     const [path, qs] = link.getAttribute("href").replace(/^#\/?/,"").split("?");
-    go(path, new URLSearchParams(qs||"").get("brand")||"");
+    go(path, new URLSearchParams(qs||"").get("cat")||"");
     return;
   }
   const lang = e.target.closest("button[data-lang]");
@@ -903,11 +751,19 @@ document.addEventListener("click", e => {
     try{ localStorage.setItem("vs_lang", state.lang); }catch(err){}
     renderAll(); return;
   }
+  const sim = e.target.closest("button[data-sim]");
+  if(sim){
+    state.sim = sim.dataset.sim;
+    try{ localStorage.setItem("vs_sim", state.sim); }catch(err){}
+    renderSim(); renderCatalog();
+    if($("#dlg").open) fillDialog();
+    return;
+  }
   if(e.target.closest("[data-write]")){ openOrder(null); return; }
-  const bc = e.target.closest(".bcard[data-brand]");
-  if(bc){ go("catalog", bc.dataset.brand); return; }
-  const bl = e.target.closest(".bl[data-brand]");
-  if(bl){ go("catalog", bl.dataset.brand); return; }
+  const cc = e.target.closest(".ccard[data-cat]");
+  if(cc){ go("catalog", cc.dataset.cat); return; }
+  const bl = e.target.closest(".bl[data-cat]");
+  if(bl){ go("catalog", bl.dataset.cat); return; }
   const pc = e.target.closest(".pcard[data-id]");
   if(pc){ openOrder(PRODUCTS.find(p => p.id===pc.dataset.id)); return; }
 });
@@ -928,7 +784,7 @@ $("#chTg").addEventListener("click", () => copyText(orderText(state.current)));
 $("#chIg").addEventListener("click", () => copyText(orderText(state.current)));
 
 /* ============ СТАРТ / INIT ============ */
-{ const r0 = parseHash(); setView(r0.path, r0.brand); }
+{ const r0 = parseHash(); setView(r0.path, r0.cat); }
 renderAll();
 showView(false);
 if(state.view==="contacts") setTimeout(() => $("#contacts").scrollIntoView(), 0);

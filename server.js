@@ -17,7 +17,10 @@ const CONFIG = {
   rate: Number(process.env.USD_RATE || 3.65),
   whatsapp: (process.env.WHATSAPP || "971500000000").replace(/\D/g, ""),
   telegram: (process.env.TELEGRAM || "voyagestore").replace(/^@/, ""),
-  instagram: (process.env.INSTAGRAM || "voyagestore").replace(/^@/, "")
+  instagram: (process.env.INSTAGRAM || "voyagestore").replace(/^@/, ""),
+  // бренды, у которых на сайте показывается «временно недоступно» (через запятую; пусто = ничего не показывать)
+  unavailable: (process.env.UNAVAILABLE_BRANDS !== undefined ? process.env.UNAVAILABLE_BRANDS : "Samsung,Dyson,Google Pixel")
+    .split(",").map(x => x.trim()).filter(Boolean)
 };
 
 const ROOT = path.join(__dirname, "public");
@@ -65,6 +68,8 @@ function parseCSV(text) {
 
 const OUT_WORDS = new Set(["нет", "нет в наличии", "no", "0", "false", "-", "out", "out of stock", "закончился"]);
 const ORDER_WORDS = new Set(["под заказ", "заказ", "доступен к заказу", "order", "to order", "to_order", "preorder"]);
+const SIM_ESIM = new Set(["esim", "e-sim", "только esim", "esim only", "only esim"]);
+const SIM_CHOICE = new Set(["choice", "both", "выбор", "esim+sim", "esim/sim", "esim + sim", "esim,sim", "да", "yes", "1", "true"]);
 
 function toNumber(v) {
   const s = String(v == null ? "" : v).replace(/[^\d.,-]/g, "").replace(",", ".");
@@ -78,10 +83,11 @@ function rowsToProducts(rows) {
   const head = rows[0].map(h => h.trim().toLowerCase());
   const col = name => head.indexOf(name);
   const idx = {
-    id: col("id"), brand: col("brand"), category: col("category"),
+    id: col("id"), category: col("category"),
     name_ru: col("name_ru"), name_en: col("name_en"),
     spec_ru: col("spec_ru"), spec_en: col("spec_en"),
-    price_aed: col("price_aed"), in_stock: col("in_stock"), image: col("image")
+    sim: col("sim"), price_aed: col("price_aed"), price_sim_aed: col("price_sim_aed"),
+    in_stock: col("in_stock"), image: col("image")
   };
   if (idx.id < 0 || (idx.name_ru < 0 && idx.name_en < 0)) {
     throw new Error("В таблице нет обязательных столбцов: id и name_ru или name_en");
@@ -94,11 +100,14 @@ function rowsToProducts(rows) {
     if (!id || (!ru && !en)) continue;
     const stockRaw = get(r, idx.in_stock).toLowerCase();
     const status = OUT_WORDS.has(stockRaw) ? "out" : (ORDER_WORDS.has(stockRaw) ? "to_order" : "in_stock");
+    const simRaw = get(r, idx.sim).toLowerCase();
+    const sim = SIM_ESIM.has(simRaw) ? "esim" : (SIM_CHOICE.has(simRaw) ? "choice" : "");
     out.push({
       id,
-      brand: get(r, idx.brand) || "Other",
       cat: (get(r, idx.category) || "other").toLowerCase(),
-      aed: toNumber(get(r, idx.price_aed)),   // пусто = «Цена по запросу»
+      sim,                                        // choice = eSIM или Physical SIM, esim = только eSIM, "" = нет выбора
+      aed: toNumber(get(r, idx.price_aed)),       // цена (при выборе SIM: с eSIM); пусто = «Цена по запросу»
+      aedSim: toNumber(get(r, idx.price_sim_aed)),// цена с Physical SIM (только при sim=choice)
       status,
       image: get(r, idx.image),
       name: { ru: ru || en, en: en || ru },
