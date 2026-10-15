@@ -50,7 +50,7 @@ img,svg{display:block;max-width:100%}
 .bar{display:flex;align-items:center;gap:28px;min-height:var(--header-h)}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.01em;line-height:1}
 .logo i{width:1px;height:16px;background:var(--border-strong)}
-.logo span{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.18em;color:var(--text-2)}
+.logo span{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.18em;color:var(--text-2);position:relative;top:1px}
 .nav{display:flex;gap:24px}
 .nav a{font-size:14px;font-weight:600;color:var(--text-2)}
 .nav a:hover{color:var(--text)}
@@ -386,7 +386,7 @@ const CAT_ORDER = ["iphone","ipad","mac","airpods","watch","tv"];
 
 /* ============ ТЕКСТЫ / TEXTS ============
    Условия доставки, часы работы и оплату меняйте здесь (блок info). */
-const DELIVERY_AED = { near: 100, far: 200 };   // Шарджа/Аджман и остальные эмираты
+const DELIVERY_AED = { near: 200, far: 350 };   // Шарджа/Аджман и остальные эмираты (Дубай бесплатно)
 
 const T = {
   ru:{
@@ -403,10 +403,10 @@ const T = {
     readySub:"Свяжитесь с нами любым удобным способом, ответим быстро.",
     infoCity:"Дубай, ОАЭ",
     infoCityText:"Доставка по всем эмиратам: в день заказа либо на следующий",
-    infoHours:"Ежедневно, 10:00 — 22:00",
-    infoHoursText:(a,b)=>`По Дубаю бесплатно, Шарджа/Аджман — ${a}, остальные эмираты — ${b}`,
+    infoHours:"Доставка ежедневно, 10:00 — 22:00",
+    infoHoursText:(a,b)=>`Дубай — бесплатно\nШарджа / Аджман — ${a}\nОстальные эмираты — ${b}`,
     infoPay:"Оплата",
-    infoPayText:"В дирхамах и долларах, переводом на турецкую или российскую карту",
+    infoPayText:"СБП, AED, USD, EUR",
     footer:"продажа оригинальной техники",
     stock:{in_stock:"В наличии", to_order:"Доступен к заказу", out:"Нет в наличии"},
     onRequest:"Цена по запросу", from:"от ",
@@ -436,10 +436,10 @@ const T = {
     readySub:"Message us any way you like, we reply fast.",
     infoCity:"Dubai, UAE",
     infoCityText:"Delivery to all emirates: same day or next day",
-    infoHours:"Daily, 10:00 AM — 10:00 PM",
-    infoHoursText:(a,b)=>`Free in Dubai, Sharjah/Ajman — ${a}, other emirates — ${b}`,
+    infoHours:"Delivery daily, 10:00 AM — 10:00 PM",
+    infoHoursText:(a,b)=>`Dubai — free\nSharjah / Ajman — ${a}\nOther emirates — ${b}`,
     infoPay:"Payment",
-    infoPayText:"In dirhams or dollars, by transfer to a Turkish or Russian card",
+    infoPayText:"SBP, AED, USD, EUR",
     footer:"original electronics",
     stock:{in_stock:"In stock", to_order:"Available to order", out:"Out of stock"},
     onRequest:"Price on request", from:"from ",
@@ -555,7 +555,7 @@ function renderStatic(){
   $$("[data-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang===state.lang));
   $$("[data-cur-select]").forEach(s => { s.value = state.cur; });
   $("#dClose").setAttribute("aria-label", t("close"));
-  $("#footText").textContent = "© "+new Date().getFullYear()+" Voyage Store · "+t("footer");
+  $("#footText").textContent = "© 2023 Voyage Store · "+t("footer");
   renderSim();
   renderUnavailable();
 }
@@ -577,7 +577,7 @@ function renderHome(){
     [ICON.pin, t("infoCity"), t("infoCityText")],
     [ICON.clock, t("infoHours"), t("infoHoursText")(money(DELIVERY_AED.near), money(DELIVERY_AED.far))],
     [ICON.card, t("infoPay"), t("infoPayText")]
-  ].map(r => `<div><span class="tile">${r[0]}</span><span><b>${esc(r[1])}</b><p>${esc(r[2])}</p></span></div>`).join("");
+  ].map(r => `<div><span class="tile">${r[0]}</span><span><b>${esc(r[1])}</b><p>${esc(r[2]).replace(/\n/g,"<br>")}</p></span></div>`).join("");
   hydratePhotos($("#viewHome"));
 }
 
