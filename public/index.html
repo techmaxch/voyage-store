@@ -72,7 +72,8 @@ img,svg{display:block;max-width:100%}
 .ph{position:relative;display:grid;place-items:center;background:var(--surface-2);overflow:hidden}
 .ph span{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--text-3);text-transform:uppercase}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.ph.has-img{background:#eceef3}
+.ph.has-img{background:#fff}
+.hero-ph.has-img{background:#f1f1f1}
 .ph.has-img span{display:none}
 
 /* ---------- главная ---------- */
@@ -82,7 +83,7 @@ img,svg{display:block;max-width:100%}
 .hero .brands-line{margin-top:18px;font-size:20px;font-weight:700;color:var(--primary-ink)}
 .hero .lead{margin-top:14px;color:var(--text-2);max-width:40ch}
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.hero-ph{aspect-ratio:5/4;border-radius:var(--r-xl);border:1px solid var(--border)}
+.hero-ph{aspect-ratio:8/5;border-radius:var(--r-xl);border:1px solid var(--border)}
 
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
 .brands{padding:44px 0 56px}
@@ -180,7 +181,7 @@ dialog h3{font-size:18px;font-weight:800;line-height:1.3;padding-right:40px}
   body{padding-bottom:calc(var(--tabs-h) + env(safe-area-inset-bottom,0px))}
   .hero{padding:20px 0 32px}
   .hero .wrap{grid-template-columns:1fr;gap:20px;text-align:center}
-  .hero-ph{order:-1;aspect-ratio:2/1}
+  .hero-ph{order:-1;aspect-ratio:8/5}
   .hero h1{font-size:24px;max-width:none;margin:0 auto}
   .hero .brands-line{font-size:17px;margin-top:12px}
   .hero .lead{font-size:15px;margin:10px auto 0}
