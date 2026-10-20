@@ -2,7 +2,7 @@
 
 Временная витрина техники Apple. Тёмный дизайн в стиле прототипа Voyage Mobile, две страницы (главная с категориями и каталог с фильтром по категориям), русский и английский, цены в AED и USD, заказ через WhatsApp, Telegram и Instagram. Каталог и цены берутся из Google Таблицы.
 
-Категории: iPhone, iPad, iMac и MacBook, AirPods, Apple Watch, Apple TV (36 позиций с готовыми ID). У iPhone цена зависит от типа SIM (eSIM или физическая), у iPhone Air только eSIM. Остальные бренды (Samsung, Dyson, Google Pixel) на сайте показаны пометкой «временно недоступно».
+Категории: iPhone, iPad, iMac и MacBook, AirPods, Apple Watch, Apple TV (48 позиций с готовыми ID). У iPhone цена зависит от типа SIM (eSIM или физическая), у iPhone Air только eSIM. Остальные бренды (Samsung, Dyson, Google Pixel) на сайте показаны пометкой «временно недоступно».
 
 ## Что менять в самом сайте
 
@@ -28,7 +28,7 @@ server.js  ──  /api/catalog  ──►  public/index.html (сайт)
 | `server.js` | сервер: отдаёт сайт и каталог из таблицы |
 | `public/index.html` | сайт (дизайн, переключатели RU/EN и AED/USD) |
 | `public/images/` | фото товаров, категорий и первого экрана |
-| `data/products.json` | запасной каталог (те же 36 позиций без цен) |
+| `data/products.json` | запасной каталог (те же 48 позиций без цен) |
 | `template/products-template.csv` | шаблон Google Таблицы |
 | `.env.example` | список настроек (переменных) |
 

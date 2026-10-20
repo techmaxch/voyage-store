@@ -204,6 +204,210 @@
   }
  },
  {
+  "id": "ip18pro-256",
+  "cat": "iphone",
+  "sim": "choice",
+  "aed": null,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "iPhone 18 Pro",
+   "en": "iPhone 18 Pro"
+  },
+  "spec": {
+   "ru": "256 GB",
+   "en": "256 GB"
+  }
+ },
+ {
+  "id": "ip18pro-512",
+  "cat": "iphone",
+  "sim": "choice",
+  "aed": null,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "iPhone 18 Pro",
+   "en": "iPhone 18 Pro"
+  },
+  "spec": {
+   "ru": "512 GB",
+   "en": "512 GB"
+  }
+ },
+ {
+  "id": "ip18pro-1tb",
+  "cat": "iphone",
+  "sim": "choice",
+  "aed": null,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "iPhone 18 Pro",
+   "en": "iPhone 18 Pro"
+  },
+  "spec": {
+   "ru": "1 TB",
+   "en": "1 TB"
+  }
+ },
+ {
+  "id": "ip18pro-2tb",
+  "cat": "iphone",
+  "sim": "choice",
+  "aed": null,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "iPhone 18 Pro",
+   "en": "iPhone 18 Pro"
+  },
+  "spec": {
+   "ru": "2 TB",
+   "en": "2 TB"
+  }
+ },
+ {
+  "id": "ip18pm-256",
+  "cat": "iphone",
+  "sim": "choice",
+  "aed": null,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "iPhone 18 Pro Max",
+   "en": "iPhone 18 Pro Max"
+  },
+  "spec": {
+   "ru": "256 GB",
+   "en": "256 GB"
+  }
+ },
+ {
+  "id": "ip18pm-512",
+  "cat": "iphone",
+  "sim": "choice",
+  "aed": null,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "iPhone 18 Pro Max",
+   "en": "iPhone 18 Pro Max"
+  },
+  "spec": {
+   "ru": "512 GB",
+   "en": "512 GB"
+  }
+ },
+ {
+  "id": "ip18pm-1tb",
+  "cat": "iphone",
+  "sim": "choice",
+  "aed": null,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "iPhone 18 Pro Max",
+   "en": "iPhone 18 Pro Max"
+  },
+  "spec": {
+   "ru": "1 TB",
+   "en": "1 TB"
+  }
+ },
+ {
+  "id": "ip18pm-2tb",
+  "cat": "iphone",
+  "sim": "choice",
+  "aed": null,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "iPhone 18 Pro Max",
+   "en": "iPhone 18 Pro Max"
+  },
+  "spec": {
+   "ru": "2 TB",
+   "en": "2 TB"
+  }
+ },
+ {
+  "id": "ip18duo-256",
+  "cat": "iphone",
+  "sim": "choice",
+  "aed": null,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "iPhone 18 Duo",
+   "en": "iPhone 18 Duo"
+  },
+  "spec": {
+   "ru": "256 GB",
+   "en": "256 GB"
+  }
+ },
+ {
+  "id": "ip18duo-512",
+  "cat": "iphone",
+  "sim": "choice",
+  "aed": null,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "iPhone 18 Duo",
+   "en": "iPhone 18 Duo"
+  },
+  "spec": {
+   "ru": "512 GB",
+   "en": "512 GB"
+  }
+ },
+ {
+  "id": "ip18duo-1tb",
+  "cat": "iphone",
+  "sim": "choice",
+  "aed": null,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "iPhone 18 Duo",
+   "en": "iPhone 18 Duo"
+  },
+  "spec": {
+   "ru": "1 TB",
+   "en": "1 TB"
+  }
+ },
+ {
+  "id": "ip18duo-2tb",
+  "cat": "iphone",
+  "sim": "choice",
+  "aed": null,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "iPhone 18 Duo",
+   "en": "iPhone 18 Duo"
+  },
+  "spec": {
+   "ru": "2 TB",
+   "en": "2 TB"
+  }
+ },
+ {
   "id": "ipad11-128",
   "cat": "ipad",
   "sim": "",
