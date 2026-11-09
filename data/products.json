@@ -595,50 +595,16 @@
   }
  },
  {
-  "id": "airpods4",
+  "id": "airpods5",
   "cat": "airpods",
   "sim": "",
-  "aed": null,
+  "aed": 620,
   "aedSim": null,
   "status": "in_stock",
   "image": "",
   "name": {
-   "ru": "AirPods 4",
-   "en": "AirPods 4"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "airpods4-anc",
-  "cat": "airpods",
-  "sim": "",
-  "aed": null,
-  "aedSim": null,
-  "status": "in_stock",
-  "image": "",
-  "name": {
-   "ru": "AirPods 4 (ANC)",
-   "en": "AirPods 4 (ANC)"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "airpods-pro2",
-  "cat": "airpods",
-  "sim": "",
-  "aed": null,
-  "aedSim": null,
-  "status": "in_stock",
-  "image": "",
-  "name": {
-   "ru": "AirPods Pro 2",
-   "en": "AirPods Pro 2"
+   "ru": "AirPods 5 with Wireless Charging Case",
+   "en": "AirPods 5 with Wireless Charging Case"
   },
   "spec": {
    "ru": "",
@@ -649,7 +615,7 @@
   "id": "airpods-pro3",
   "cat": "airpods",
   "sim": "",
-  "aed": null,
+  "aed": 780,
   "aedSim": null,
   "status": "in_stock",
   "image": "",
@@ -663,16 +629,16 @@
   }
  },
  {
-  "id": "airpods-max-usbc",
+  "id": "airpods-max2",
   "cat": "airpods",
   "sim": "",
-  "aed": null,
+  "aed": 1750,
   "aedSim": null,
   "status": "in_stock",
   "image": "",
   "name": {
-   "ru": "AirPods Max (USB-C)",
-   "en": "AirPods Max (USB-C)"
+   "ru": "AirPods Max 2",
+   "en": "AirPods Max 2"
   },
   "spec": {
    "ru": "",
@@ -680,10 +646,10 @@
   }
  },
  {
-  "id": "watch-se3-42",
+  "id": "watch-se3-40",
   "cat": "watch",
   "sim": "",
-  "aed": null,
+  "aed": 950,
   "aedSim": null,
   "status": "in_stock",
   "image": "",
@@ -692,15 +658,15 @@
    "en": "Apple Watch SE 3"
   },
   "spec": {
-   "ru": "42 mm",
-   "en": "42 mm"
+   "ru": "40 mm",
+   "en": "40 mm"
   }
  },
  {
   "id": "watch-se3-44",
   "cat": "watch",
   "sim": "",
-  "aed": null,
+  "aed": 1050,
   "aedSim": null,
   "status": "in_stock",
   "image": "",
@@ -714,16 +680,16 @@
   }
  },
  {
-  "id": "watch11-42",
+  "id": "watch12-42",
   "cat": "watch",
   "sim": "",
-  "aed": null,
+  "aed": 1550,
   "aedSim": null,
   "status": "in_stock",
   "image": "",
   "name": {
-   "ru": "Apple Watch 11",
-   "en": "Apple Watch 11"
+   "ru": "Apple Watch Series 12",
+   "en": "Apple Watch Series 12"
   },
   "spec": {
    "ru": "42 mm",
@@ -731,16 +697,16 @@
   }
  },
  {
-  "id": "watch11-46",
+  "id": "watch12-46",
   "cat": "watch",
   "sim": "",
-  "aed": null,
+  "aed": 1700,
   "aedSim": null,
   "status": "in_stock",
   "image": "",
   "name": {
-   "ru": "Apple Watch 11",
-   "en": "Apple Watch 11"
+   "ru": "Apple Watch Series 12",
+   "en": "Apple Watch Series 12"
   },
   "spec": {
    "ru": "46 mm",
@@ -748,37 +714,20 @@
   }
  },
  {
-  "id": "watch-ultra2",
+  "id": "watch-ultra4",
   "cat": "watch",
   "sim": "",
-  "aed": null,
+  "aed": 3000,
   "aedSim": null,
   "status": "in_stock",
   "image": "",
   "name": {
-   "ru": "Apple Watch Ultra 2",
-   "en": "Apple Watch Ultra 2"
+   "ru": "Apple Watch Ultra 4",
+   "en": "Apple Watch Ultra 4"
   },
   "spec": {
-   "ru": "",
-   "en": ""
-  }
- },
- {
-  "id": "watch-ultra3",
-  "cat": "watch",
-  "sim": "",
-  "aed": null,
-  "aedSim": null,
-  "status": "in_stock",
-  "image": "",
-  "name": {
-   "ru": "Apple Watch Ultra 3",
-   "en": "Apple Watch Ultra 3"
-  },
-  "spec": {
-   "ru": "",
-   "en": ""
+   "ru": "49 mm",
+   "en": "49 mm"
   }
  },
  {
