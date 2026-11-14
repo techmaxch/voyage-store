@@ -763,5 +763,90 @@
    "ru": "128 GB",
    "en": "128 GB"
   }
+ },
+ {
+  "id": "ps5-slim-digital",
+  "cat": "sony",
+  "sim": "",
+  "aed": 2400,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "PS5 Slim Digital Edition",
+   "en": "PS5 Slim Digital Edition"
+  },
+  "spec": {
+   "ru": "825 GB",
+   "en": "825 GB"
+  }
+ },
+ {
+  "id": "ps5-slim-1tb",
+  "cat": "sony",
+  "sim": "",
+  "aed": 2600,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "PS5 Slim",
+   "en": "PS5 Slim"
+  },
+  "spec": {
+   "ru": "1 TB",
+   "en": "1 TB"
+  }
+ },
+ {
+  "id": "ps5-pro-2tb",
+  "cat": "sony",
+  "sim": "",
+  "aed": 5500,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "PS5 Pro",
+   "en": "PS5 Pro"
+  },
+  "spec": {
+   "ru": "2 TB",
+   "en": "2 TB"
+  }
+ },
+ {
+  "id": "dualsense",
+  "cat": "sony",
+  "sim": "",
+  "aed": 270,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "Sony DualSense",
+   "en": "Sony DualSense"
+  },
+  "spec": {
+   "ru": "",
+   "en": ""
+  }
+ },
+ {
+  "id": "dualsense-edge",
+  "cat": "sony",
+  "sim": "",
+  "aed": 800,
+  "aedSim": null,
+  "status": "in_stock",
+  "image": "",
+  "name": {
+   "ru": "Sony DualSense Edge",
+   "en": "Sony DualSense Edge"
+  },
+  "spec": {
+   "ru": "",
+   "en": ""
+  }
  }
 ]
