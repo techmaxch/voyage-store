@@ -103,6 +103,7 @@ img,svg{display:block;max-width:100%}
 
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
 .brands{padding:44px 0 56px}
+.eyebrow.sub{margin-top:44px}
 .cat-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 20px;margin-top:22px}
 .ccard{position:relative;display:flex;flex-direction:column;gap:12px;padding:16px;border:1.5px solid var(--border-strong);border-radius:var(--r-xl);text-align:left;background:transparent;transition:border-color .14s}
 .ccard:hover{border-color:var(--primary)}
@@ -296,6 +297,10 @@ dialog h3{font-size:18px;font-weight:800;line-height:1.3;padding-right:40px}
       <div class="wrap">
         <p class="eyebrow" data-i18n="brands"></p>
         <div class="cat-cards" id="catCards"></div>
+        <div id="sonyBlock" hidden>
+          <p class="eyebrow sub" data-i18n="brandsSony"></p>
+          <div class="cat-cards" id="catCardsSony"></div>
+        </div>
         <div class="unavail" data-unavail hidden>
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg>
           <span class="u-txt"></span>
@@ -411,7 +416,7 @@ const T = {
     heroTitle:"Продажа оригинальной техники",
     heroText:"Доставка по всем эмиратам. Вся техника Apple в наличии.",
     heroCta:"Смотреть каталог", heroContact:"Связаться с нами", phProduct:"Фото товара",
-    brands:"Каталог Apple", catCap:"Категория", allItems:"Вся техника", photo:"Фото",
+    brands:"Каталог Apple", brandsSony:"Каталог SONY", catCap:"Категория", allItems:"Вся техника", photo:"Фото",
     unavailable:list=>`${list.join(", ")}: временно недоступно`,
     simLabel:"Тип SIM", simEsim:"eSIM", simPhys:"Физическая SIM", simOnly:"только eSIM",
     simHint:"Модели Air: только eSIM",
@@ -432,7 +437,7 @@ const T = {
     copied:"Текст скопирован. Вставьте его в чат.",
     close:"Закрыть",
     models:n=>{const a=n%10,b=n%100;return n+" "+(a===1&&b!==11?"модель":(a>=2&&a<=4&&(b<10||b>=20)?"модели":"моделей"))},
-    cats:{iphone:"iPhone",ipad:"iPad",mac:"iMac, MacBook",airpods:"AirPods",watch:"Apple Watch",tv:"Apple TV",sony:"Sony PlayStation",other:"Другое"},
+    cats:{iphone:"iPhone",ipad:"iPad",mac:"iMac, MacBook",airpods:"AirPods",watch:"Apple Watch",tv:"Apple TV",sony:"PlayStation",other:"Другое"},
     msgGeneric:"Здравствуйте! Хочу уточнить по технике.",
     msg:(st,n,p)=> st==="out" ? `Здравствуйте! Интересует ${n}. Когда будет в наличии?`
       : st==="to_order" ? `Здравствуйте! Интересует ${n} под заказ${p?" ("+p+")":""}. Сроки и итоговая цена?`
@@ -444,7 +449,7 @@ const T = {
     heroTitle:"Original electronics",
     heroText:"Delivery to all emirates. All Apple products in stock.",
     heroCta:"Browse catalog", heroContact:"Contact us", phProduct:"Product photo",
-    brands:"Apple catalog", catCap:"Category", allItems:"All products", photo:"Photo",
+    brands:"Apple catalog", brandsSony:"SONY catalog", catCap:"Category", allItems:"All products", photo:"Photo",
     unavailable:list=>`${list.join(", ")}: temporarily unavailable`,
     simLabel:"SIM type", simEsim:"eSIM", simPhys:"Physical SIM", simOnly:"eSIM only",
     simHint:"Air models: eSIM only",
@@ -465,7 +470,7 @@ const T = {
     copied:"Text copied. Paste it into the chat.",
     close:"Close",
     models:n=>n+(n===1?" model":" models"),
-    cats:{iphone:"iPhone",ipad:"iPad",mac:"iMac, MacBook",airpods:"AirPods",watch:"Apple Watch",tv:"Apple TV",sony:"Sony PlayStation",other:"Other"},
+    cats:{iphone:"iPhone",ipad:"iPad",mac:"iMac, MacBook",airpods:"AirPods",watch:"Apple Watch",tv:"Apple TV",sony:"PlayStation",other:"Other"},
     msgGeneric:"Hello! I'd like to ask about your products.",
     msg:(st,n,p)=> st==="out" ? `Hello! I'm interested in ${n}. When will it be back in stock?`
       : st==="to_order" ? `Hello! I'm interested in ${n} to order${p?" ("+p+")":""}. Lead time and final price?`
@@ -577,12 +582,17 @@ function renderStatic(){
 }
 
 function renderHome(){
-  $("#catCards").innerHTML = catsList().map(c => `
+  const cardHtml = c => `
     <button type="button" class="ccard" data-cat="${esc(c.key)}">
       <span class="clabel">${esc(catLabel(c.key))}</span>
       ${ph("images/cat-"+encodeURIComponent(c.key)+".jpg", t("photo"))}
       <span class="ccount">${t("models")(c.count)}</span>
-    </button>`).join("");
+    </button>`;
+  const allCats = catsList();
+  $("#catCards").innerHTML = allCats.filter(c => c.key!=="sony").map(cardHtml).join("");
+  const sonyCats = allCats.filter(c => c.key==="sony");
+  $("#catCardsSony").innerHTML = sonyCats.map(cardHtml).join("");
+  $("#sonyBlock").hidden = !sonyCats.length;
 
   $("#chanLinks").innerHTML =
     `<a class="btn white" href="https://wa.me/${esc(CONFIG.whatsapp)}" target="_blank" rel="noopener">${ICON.wa}${t("whatsapp")}</a>`+
